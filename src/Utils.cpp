@@ -2,6 +2,7 @@
 #include <labcomm/Exceptions.hh>
 
 #include <sstream>
+#include <stdint.h>
 
 namespace labcomm
 {

@@ -1,6 +1,7 @@
 #ifndef LC_DEBUG_HH
 #define LC_DEBUG_HH
 
+#include <cstdint>
 #include <unistd.h>
 #include <stdio.h>
 #include <string>

@@ -263,14 +263,10 @@ string TcpipSerialComm::getBdr(BaudRate t_baud)
         case BAUD_1200:   bdr = "0"; break;
         case BAUD_2400:   bdr = "1"; break;
         case BAUD_4800:   bdr = "2"; break;
-        case BAUD_7200:   bdr = "3"; break;
         case BAUD_9600:   bdr = "4"; break;
-        case BAUD_14400:  bdr = "5"; break;
         case BAUD_19200:  bdr = "6"; break;
-        case BAUD_28800:  bdr = "7"; break;
         case BAUD_38400:  bdr = "8"; break;
         case BAUD_57600:  bdr = "9"; break;
-        case BAUD_76800:  bdr = "A"; break;
         case BAUD_115200: bdr = "B"; break;
 
         default:

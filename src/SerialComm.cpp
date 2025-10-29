@@ -9,6 +9,7 @@
 #include <sys/ioctl.h>      // ioctl()
 #include <sys/select.h>     // select()
 #include <sstream>
+#include <string.h>
 
 using namespace std;
 
