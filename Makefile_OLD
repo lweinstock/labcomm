@@ -76,7 +76,7 @@ prefix=$(PREFIX)
 includedir=$${prefix}/include
 libdir=$${prefix}/lib
 
-Name: labcomm
+Name: labkit
 Description: Library for remote control and operation of lab devices
 Version: 0.0.1
 Cflags: $(PC_CFLAGS)
@@ -112,12 +112,12 @@ install: $(LIBNAME).a $(LIBNAME).pc
 	mkdir -p $(DESTDIR)$(PREFIX)/include
 	cp $(LIBNAME).a $(DESTDIR)$(PREFIX)/lib/$(LIBNAME).a
 	cp $(LIBNAME).pc $(DESTDIR)$(PC_PATH)/$(LIBNAME).pc
-	cp -R $(INC)/labcomm $(DESTDIR)$(PREFIX)/include/
+	cp -R $(INC)/labkit $(DESTDIR)$(PREFIX)/include/
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/lib/$(LIBNAME).a
 	rm -f $(DESTDIR)$(PC_PATH)/$(LIBNAME).pc
-	rm -rf $(DESTDIR)$(PREFIX)/include/labcomm
+	rm -rf $(DESTDIR)$(PREFIX)/include/labkit
   
 clean:
 	rm -f $(OBJ)

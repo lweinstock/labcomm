@@ -1,6 +1,6 @@
-#include <labcomm/SerialComm.hh>
-#include <labcomm/Exceptions.hh>
-#include <labcomm/Debug.hh>
+#include <labkit/comms/serialcomm.hh>
+#include <labkit/exceptions.hh>
+#include <labkit/debug.hh>
 
 #include <fcntl.h>          // file control definitions
 #include <string>
@@ -13,7 +13,8 @@
 
 using namespace std;
 
-namespace labcomm {
+namespace labkit 
+{
 
 SerialComm::SerialComm(std::string t_path, BaudRate t_baud, CharSize t_csize,
     Parity t_par, StopBits t_sbits) : SerialComm()

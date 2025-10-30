@@ -1,10 +1,10 @@
-#include <labcomm/Utils.hh>
-#include <labcomm/Exceptions.hh>
+#include <labkit/utils.hh>
+#include <labkit/exceptions.hh>
 
 #include <sstream>
 #include <stdint.h>
 
-namespace labcomm
+namespace labkit
 {
 
 template <typename T> T convertTo(const std::string &t_val)

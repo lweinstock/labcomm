@@ -2,9 +2,9 @@
 #define LC_MODBUS_HH
 
 #include <memory>
-#include <labcomm/BasicComm.hh>
+#include <labkit/comms/basiccomm.hh>
 
-namespace labcomm
+namespace labkit
 {
 
 /** \brief Abstract base class for the MODBUS protocol

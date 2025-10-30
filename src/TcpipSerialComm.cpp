@@ -1,7 +1,6 @@
-#include "labcomm/SerialComm.hh"
-#include <labcomm/TcpipSerialComm.hh>
-#include <labcomm/Exceptions.hh>
-#include <labcomm/Debug.hh>
+#include <labkit/comms/tcpipserialcomm.hh>
+#include <labkit/exceptions.hh>
+#include <labkit/debug.hh>
 
 #include <string>
 #include <sstream>
@@ -9,7 +8,7 @@
 
 using namespace std;
 
-namespace labcomm {
+namespace labkit {
 
 TcpipSerialComm::TcpipSerialComm(std::string t_ip_addr, unsigned t_port, 
     BaudRate t_baud, CharSize t_csize, Parity t_par, StopBits t_sbits) 

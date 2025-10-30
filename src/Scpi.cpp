@@ -1,12 +1,13 @@
-#include <labcomm/scpi/Scpi.hh>
-#include <labcomm/Exceptions.hh>
-#include <labcomm/Utils.hh>
+#include <labkit/protocols/scpi/scpi.hh>
+#include <labkit/exceptions.hh>
+#include <labkit/utils.hh>
 
 #include <unistd.h>
 
 using namespace std;
 
-namespace labcomm {
+namespace labkit 
+{
 
 void Scpi::setEse(uint8_t t_event_status)
 {

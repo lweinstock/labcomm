@@ -3,7 +3,8 @@
 
 #include <string>
 
-namespace labcomm {
+namespace labkit 
+{
 
 // Conversion using templates
 template <typename T> T convertTo(const std::string &t_val);

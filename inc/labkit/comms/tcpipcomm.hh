@@ -1,12 +1,13 @@
 #ifndef LC_TCPIP_COMM_HH
 #define LC_TCPIP_COMM_HH
 
-#include <labcomm/BasicComm.hh>
+#include <labkit/comms/basiccomm.hh>
 
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
-namespace labcomm {
+namespace labkit 
+{
 
 /** \brief Communication interface based on UNIX TCP sockets
  *

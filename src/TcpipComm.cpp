@@ -1,16 +1,17 @@
-#include <labcomm/TcpipComm.hh>
-#include <labcomm/Exceptions.hh>
-#include <labcomm/Debug.hh>
+#include <labkit/comms/tcpipcomm.hh>
+#include <labkit/exceptions.hh>
+#include <labkit/debug.hh>
 
 #include <errno.h>
 #include <netinet/in.h>
 #include <sys/time.h>
-#include <sstream>
 #include <string.h>
+#include <sstream>
 
 using namespace std;
 
-namespace labcomm {
+namespace labkit 
+{
 
 TcpipComm::~TcpipComm()
 {

@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.00)
+cmake_minimum_required(VERSION 3.28)
 project(
-    labcomm 
+    labkit 
     VERSION 2025.0
     DESCRIPTION "A C++ library for communication with lab instruments"
     LANGUAGES CXX)
@@ -16,7 +16,9 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 # Get all source files from src/
-file(GLOB_RECURSE SOURCES "src/*.cpp")
+file(GLOB_RECURSE SOURCES "src/*.cpp") 
+
+message(STATUS "Found sources: ${SOURCES}")
 
 # Create a static library
 add_library(${PROJECT_NAME} STATIC ${SOURCES})

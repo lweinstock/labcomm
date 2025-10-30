@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-namespace labcomm
+namespace labkit
 {
 
 /// Enum for the communication interface types

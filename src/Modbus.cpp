@@ -1,7 +1,7 @@
-#include <labcomm/modbus/Modbus.hh>
-#include <labcomm/Exceptions.hh>
+#include <labkit/protocols/modbus/modbus.hh>
+#include <labkit/exceptions.hh>
 
-namespace labcomm
+namespace labkit
 {
 
 void Modbus::checkAndThrow(uint8_t error)

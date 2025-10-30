@@ -1,16 +1,16 @@
-#include <cstdint>
-#include <cstdio>
-#include <labcomm/UsbComm.hh>
-#include <labcomm/Exceptions.hh>
-#include <labcomm/Debug.hh>
+#include <labkit/comms/usbcomm.hh>
+#include <labkit/exceptions.hh>
+#include <labkit/debug.hh>
 
 #include <sstream>
 #include <algorithm>
 #include <iostream>
+#include <cstdint>
+#include <cstdio>
 
 using namespace std;
 
-namespace labcomm {
+namespace labkit {
 
 libusb_context* UsbComm::s_default_ctx = NULL;
 int UsbComm::s_dev_count = 0;

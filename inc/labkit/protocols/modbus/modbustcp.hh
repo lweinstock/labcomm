@@ -1,9 +1,9 @@
 #ifndef LC_MODBUS_TCP_HH
 #define LC_MODBUS_TCP_HH
 
-#include <labcomm/modbus/Modbus.hh>
+#include <labkit/protocols/modbus/modbus.hh>
 
-namespace labcomm
+namespace labkit
 {
 
 /** \brief Implementation of MODBUS TCP

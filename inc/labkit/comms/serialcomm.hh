@@ -1,10 +1,10 @@
 #ifndef LC_SERIAL_COMM_HH
 #define LC_SERIAL_COMM_HH
 
-#include <labcomm/BasicComm.hh>
+#include <labkit/comms/basiccomm.hh>
 #include <termios.h>
 
-namespace labcomm
+namespace labkit
 {
 
 /** \brief Communication interface based on the UNIX serial port

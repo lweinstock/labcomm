@@ -1,10 +1,11 @@
 #ifndef LC_USB_COMM_HH
 #define LC_USB_COMM_HH
 
-#include <labcomm/BasicComm.hh>
+#include <labkit/comms/basiccomm.hh>
 #include <libusb.h>
 
-namespace labcomm {
+namespace labkit 
+{
 
 /**
  * @brief USB communication interface

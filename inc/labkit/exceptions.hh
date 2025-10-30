@@ -4,10 +4,10 @@
 #include <exception>
 #include <string>
 
-namespace labcomm 
+namespace labkit 
 {
 
-/// Basic labcomm exception class
+/// Basic labkit exception class
 class Exception : public std::exception {
 public:
     Exception(const std::string& msg, int err = 0):

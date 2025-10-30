@@ -18,7 +18,7 @@
     #define PRINT_DEBUG 0
 #endif
 
-namespace labcomm 
+namespace labkit 
 {
 
 // Print message with additional information if LC_DEBUG is set

@@ -1,10 +1,10 @@
 #ifndef LC_ETH_SERIAL_COMM_HH
 #define LC_ETH_SERIAL_COMM_HH
 
-#include <labcomm/SerialComm.hh>
-#include <labcomm/TcpipComm.hh>
+#include <labkit/comms/serialcomm.hh>
+#include <labkit/comms/tcpipcomm.hh>
 
-namespace labcomm
+namespace labkit
 {
 
 /** \brief Communication interface for an ethernet to serial converter. 

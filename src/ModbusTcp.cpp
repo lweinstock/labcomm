@@ -1,10 +1,10 @@
-#include <labcomm/modbus/ModbusTcp.hh>
-#include <labcomm/Exceptions.hh>
-#include <labcomm/Debug.hh>
+#include <labkit/protocols/modbus/modbustcp.hh>
+#include <labkit/exceptions.hh>
+#include <labkit/debug.hh>
 
 using namespace std;
 
-namespace labcomm
+namespace labkit
 {
 
 vector<bool> ModbusTcp::readCoils(uint8_t t_unit_id, uint16_t t_addr, 

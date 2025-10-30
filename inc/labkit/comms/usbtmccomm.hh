@@ -1,9 +1,9 @@
 #ifndef LC_USBTMC_COMM_HH
 #define LC_USBTMC_COMM_HH
 
-#include <labcomm/UsbComm.hh>
+#include <labkit/comms/usbcomm.hh>
 
-namespace labcomm
+namespace labkit
 {
 
 /**

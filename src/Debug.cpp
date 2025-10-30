@@ -1,8 +1,9 @@
-#include <labcomm/Debug.hh>
+#include <labkit/debug.hh>
 
 using namespace std;
 
-namespace labcomm {
+namespace labkit 
+{
 
 void debugPrint(FILE* t_stream, const char* t_file, const char* t_function, 
     const char* t_msg, ...)

@@ -1,10 +1,9 @@
-#include "labcomm/modbus/Modbus.hh"
-#include <labcomm/modbus/ModbusRtu.hh>
-#include <labcomm/Debug.hh>
+#include <labkit/protocols/modbus/modbusrtu.hh>
+#include <labkit/debug.hh>
 
 using namespace std;
 
-namespace labcomm
+namespace labkit
 {
 
 std::vector<bool> ModbusRtu::readCoils(uint8_t unit_id, uint16_t addr, 

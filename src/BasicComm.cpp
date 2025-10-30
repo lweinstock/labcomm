@@ -1,12 +1,13 @@
-#include <labcomm/BasicComm.hh>
-#include <labcomm/Exceptions.hh>
-#include <labcomm/Debug.hh>
+#include <labkit/comms/basiccomm.hh>
+#include <labkit/exceptions.hh>
+#include <labkit/debug.hh>
 
 #include <sys/time.h>
 
 using namespace std;
 
-namespace labcomm{
+namespace labkit
+{
 
 void BasicComm::writeByte(const vector<uint8_t> data)
 {

@@ -1,10 +1,11 @@
-#include <labcomm/UsbTmcComm.hh>
-#include <labcomm/Exceptions.hh>
-#include <labcomm/Debug.hh>
+#include <labkit/comms/usbtmccomm.hh>
+#include <labkit/exceptions.hh>
+#include <labkit/debug.hh>
 
 using namespace std;
 
-namespace labcomm {
+namespace labkit 
+{
 
 int UsbTmcComm::writeRaw(const uint8_t* t_data, size_t t_len) 
 {

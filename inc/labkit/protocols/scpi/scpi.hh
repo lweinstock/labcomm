@@ -2,9 +2,9 @@
 #define LC_SCPI_HH
 
 #include <memory>
-#include <labcomm/BasicComm.hh>
+#include <labkit/comms/basiccomm.hh>
 
-namespace labcomm
+namespace labkit
 {
 
 /** \brief Implementation of Standard Commands for Programmable Instruments (SCPI)
