@@ -9,10 +9,10 @@ project(
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Debug mode: Add '-g -Wall -DLC_DEBUG'
+# Debug mode: Add '-g -Wall -DLK_DEBUG'
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_compile_options(-g -Wall)
-    add_compile_definitions(LC_DEBUG)
+    add_compile_definitions(LK_DEBUG)
 endif()
 
 # Get all source files from src/

@@ -1,5 +1,5 @@
-#ifndef LC_BASIC_COMM_HH
-#define LC_BASIC_COMM_HH
+#ifndef LK_BASIC_COMM_HH
+#define LK_BASIC_COMM_HH
 
 #include <cstdint>
 #include <string>

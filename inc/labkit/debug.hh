@@ -1,5 +1,5 @@
-#ifndef LC_DEBUG_HH
-#define LC_DEBUG_HH
+#ifndef LK_DEBUG_HH
+#define LK_DEBUG_HH
 
 #include <cstdint>
 #include <unistd.h>
@@ -8,11 +8,11 @@
 #include <stdarg.h>
 
 /*
- *  LC_DEBUG can be used instead of PRINT_DEBUG, but some
- *  code editors complain if LC_DEBUG is not defined
+ *  LK_DEBUG can be used instead of PRINT_DEBUG, but some
+ *  code editors complain if LK_DEBUG is not defined
  */
 
-#ifdef LC_DEBUG
+#ifdef LK_DEBUG
     #define PRINT_DEBUG 1
 #else
     #define PRINT_DEBUG 0
@@ -21,7 +21,7 @@
 namespace labkit 
 {
 
-// Print message with additional information if LC_DEBUG is set
+// Print message with additional information if LK_DEBUG is set
 #define DEBUG_PRINT(msg, ...) \
     if (PRINT_DEBUG) debugPrint(stderr, __FILE__, __func__, msg, __VA_ARGS__)
 

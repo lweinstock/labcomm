@@ -1,4 +1,4 @@
-#include <labkit/protocols/modbus/modbus.hh>
+#include <labkit/protocols/modbus.hh>
 #include <labkit/exceptions.hh>
 
 namespace labkit

@@ -1,5 +1,5 @@
-#ifndef LC_USBTMC_COMM_HH
-#define LC_USBTMC_COMM_HH
+#ifndef LK_USBTMC_COMM_HH
+#define LK_USBTMC_COMM_HH
 
 #include <labkit/comms/usbcomm.hh>
 

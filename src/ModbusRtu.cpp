@@ -1,4 +1,4 @@
-#include <labkit/protocols/modbus/modbusrtu.hh>
+#include <labkit/protocols/modbusrtu.hh>
 #include <labkit/debug.hh>
 
 using namespace std;

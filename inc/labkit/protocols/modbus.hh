@@ -1,5 +1,5 @@
-#ifndef LC_MODBUS_HH
-#define LC_MODBUS_HH
+#ifndef LK_MODBUS_HH
+#define LK_MODBUS_HH
 
 #include <memory>
 #include <labkit/comms/basiccomm.hh>
@@ -17,6 +17,9 @@ public:
     Modbus() {};
     Modbus(std::shared_ptr<BasicComm> t_comm) : m_comm(t_comm) {};
     ~Modbus() {};
+    
+    /// Set communication interface
+    void setComm(std::shared_ptr<BasicComm> t_comm) { t_comm = m_comm; }
 
     /// Modbus function codes
     enum FunctionCode : uint8_t 

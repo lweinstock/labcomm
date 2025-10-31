@@ -1,4 +1,4 @@
-#include <labkit/protocols/scpi/scpi.hh>
+#include <labkit/protocols/scpi.hh>
 #include <labkit/exceptions.hh>
 #include <labkit/utils.hh>
 

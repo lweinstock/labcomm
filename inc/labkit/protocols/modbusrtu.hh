@@ -1,20 +1,20 @@
-#ifndef LC_MODBUS_TCP_HH
-#define LC_MODBUS_TCP_HH
+#ifndef LK_MODBUS_RTU_HH
+#define LK_MODBUS_RTU_HH
 
-#include <labkit/protocols/modbus/modbus.hh>
+#include <labkit/protocols/modbus.hh>
 
 namespace labkit
 {
 
-/** \brief Implementation of MODBUS TCP
+/** \brief Implementation of MODBUS Remote Terminal Unit (RTU)
  *
  */
-class ModbusTcp : public Modbus
+class ModbusRtu : public Modbus
 {
 public:
-    ModbusTcp() : Modbus() {};
-    ModbusTcp(std::shared_ptr<BasicComm> t_comm) : Modbus(t_comm) {};
-    ~ModbusTcp() {};
+    ModbusRtu() : Modbus() {};
+    ModbusRtu(std::shared_ptr<BasicComm> t_comm) : Modbus(t_comm) {};
+    ~ModbusRtu() {};
 
     /// Function Code 01; read coils -> returns true = on, false = off
     std::vector<bool> readCoils(uint8_t t_unit_id, uint16_t t_addr, 
@@ -48,12 +48,12 @@ public:
         std::vector<uint16_t> t_regs) override;
 
 private:
-    /// Transaction ID used by MODBUS TCP
-    uint16_t m_tid {0x0000};
-
+    /// Returns CRC sum used by MODBUS RTU
+    static uint16_t calcCrc16(const std::vector<uint8_t> &t_data);
+    
     /// Returns MODBUS packet
     std::vector<uint8_t> createPacket(uint8_t t_unit_id, 
-        uint8_t t_function_code, std::vector<uint8_t> &t_data);
+        uint8_t t_function_code, const std::vector<uint8_t> &t_data);
 
     /// Read 16 bit registers; used by FC03 & FC04
     std::vector<uint16_t> read16BitRegs(uint8_t t_unit_id, 

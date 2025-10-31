@@ -188,8 +188,11 @@ void UsbComm::close()
 string UsbComm::getInfo() const noexcept
 {
     char buf[64];
-    snprintf(buf, 64, "usb;%04X:%04X:%s", m_vid, m_pid, m_serno.c_str());
-    return string(buf);
+    snprintf(buf, 64, "usb;%04X:%04X", m_vid, m_pid);
+    string info(buf);
+    if (!m_serno.empty())
+        info += ":" + m_serno;
+    return info;
 }
 
 void UsbComm::clear()

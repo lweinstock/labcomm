@@ -1,5 +1,5 @@
-#ifndef LC_EXCEPTION_HH
-#define LC_EXCEPTION_HH
+#ifndef LK_EXCEPTION_HH
+#define LK_EXCEPTION_HH
 
 #include <exception>
 #include <string>

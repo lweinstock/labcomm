@@ -1,5 +1,5 @@
-#ifndef LC_SCPI_HH
-#define LC_SCPI_HH
+#ifndef LK_SCPI_HH
+#define LK_SCPI_HH
 
 #include <memory>
 #include <labkit/comms/basiccomm.hh>
@@ -17,6 +17,9 @@ public:
     Scpi() {};
     Scpi(std::shared_ptr<BasicComm> t_comm) : m_comm(t_comm) {};
     ~Scpi() {};
+
+    /// Set communication interface
+    void setComm(std::shared_ptr<BasicComm> t_comm) { m_comm = t_comm; }
 
     /// CLear Status
     void cls() { m_comm->write("*CLS\n"); }

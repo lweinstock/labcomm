@@ -1,5 +1,5 @@
-#ifndef LC_TCPIP_COMM_HH
-#define LC_TCPIP_COMM_HH
+#ifndef LK_TCPIP_COMM_HH
+#define LK_TCPIP_COMM_HH
 
 #include <labkit/comms/basiccomm.hh>
 

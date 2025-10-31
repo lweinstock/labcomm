@@ -8,7 +8,7 @@
 CC=g++
 CFLAGS=-Wall --std=c++17 -fPIC
 # Debugging
-CFLAGS+=-g -D LC_DEBUG
+CFLAGS+=-g -D LK_DEBUG
 
 # Library name and objects
 LIBNAME=liblabcomm

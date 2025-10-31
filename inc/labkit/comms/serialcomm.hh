@@ -1,5 +1,5 @@
-#ifndef LC_SERIAL_COMM_HH
-#define LC_SERIAL_COMM_HH
+#ifndef LK_SERIAL_COMM_HH
+#define LK_SERIAL_COMM_HH
 
 #include <labkit/comms/basiccomm.hh>
 #include <termios.h>

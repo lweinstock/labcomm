@@ -1,5 +1,5 @@
-#ifndef LC_ETH_SERIAL_COMM_HH
-#define LC_ETH_SERIAL_COMM_HH
+#ifndef LK_ETH_SERIAL_COMM_HH
+#define LK_ETH_SERIAL_COMM_HH
 
 #include <labkit/comms/serialcomm.hh>
 #include <labkit/comms/tcpipcomm.hh>

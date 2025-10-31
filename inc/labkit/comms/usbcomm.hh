@@ -1,5 +1,5 @@
-#ifndef LC_USB_COMM_HH
-#define LC_USB_COMM_HH
+#ifndef LK_USB_COMM_HH
+#define LK_USB_COMM_HH
 
 #include <labkit/comms/basiccomm.hh>
 #include <libusb.h>

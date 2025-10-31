@@ -1,4 +1,4 @@
-#include <labkit/protocols/modbus/modbustcp.hh>
+#include <labkit/protocols/modbustcp.hh>
 #include <labkit/exceptions.hh>
 #include <labkit/debug.hh>
 
