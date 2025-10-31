@@ -2,6 +2,7 @@
 #include <labkit/exceptions.hh>
 
 #include <sstream>
+#include <algorithm>
 #include <stdint.h>
 
 using namespace std;
