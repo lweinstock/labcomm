@@ -47,4 +47,12 @@ template unsigned convertTo<unsigned>(const std::string &t_val);
 template float convertTo<float>(const std::string &t_val);
 template double convertTo<double>(const std::string &t_val);
 
+std::string removeCtrlChars(const std::string &str)
+{
+    string ret = str;
+    ret.erase(remove_if(ret.begin(), ret.end(), 
+        [](char c) { return std::iscntrl(c); }), ret.end());
+    return ret;
+}
+
 }

@@ -14,6 +14,9 @@ std::vector<std::string> split(std::string list, std::string delim,
 /// Type conversion using templates
 template <typename T> T convertTo(const std::string &t_val);
 
+/// Returns a string with all control characters removed (i.e. \n, \r, \0, ...)
+std::string removeCtrlChars(const std::string &str);
+
 }
 
 #endif

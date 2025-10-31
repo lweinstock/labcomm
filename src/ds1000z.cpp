@@ -161,7 +161,36 @@ void Ds1000Z::setMeasurement(unsigned t_channel, MeasurementItem t_meas)
 {
     if ( !this->channelValid(t_channel) )
         throw DeviceError("Invalid channel number " + to_string(t_channel));
-    // TODO!
+
+    // Valid single source measurement?
+    switch (t_meas) {
+        case VMAX: 
+        case VMIN:
+        case VPP:
+        case VTOP:
+        case VBASE:
+        case VAMP:
+        case VAVG:
+        case VRMS:
+        case OVERSHOOT:
+        case PRESHOOT:
+        case FREQ:
+        case RISETIME:
+        case FALLTIME:
+        case POS_WIDTH:
+        case NEG_WIDTH:
+        case POS_DUTY:
+        case NEG_DUTY:
+        break;
+
+        default:
+        throw DeviceError("Invalid single source measurement " 
+            + measToString(t_meas));
+    }
+
+    stringstream msg("");
+    msg << ":MEAS:ITEM " << measToString(t_meas) << ",CHAN" << t_channel << "\n";
+    this->getComm()->write(msg.str());
     return;
 }
 
@@ -169,8 +198,37 @@ double Ds1000Z::getMeasurement(unsigned t_channel, MeasurementItem t_meas)
 {
     if ( !this->channelValid(t_channel) )
         throw DeviceError("Invalid channel number " + to_string(t_channel));
-    // TODO!
-    return 0.;
+
+    // Valid single source measurement?
+    switch (t_meas) {
+        case VMAX: 
+        case VMIN:
+        case VPP:
+        case VTOP:
+        case VBASE:
+        case VAMP:
+        case VAVG:
+        case VRMS:
+        case OVERSHOOT:
+        case PRESHOOT:
+        case FREQ:
+        case RISETIME:
+        case FALLTIME:
+        case POS_WIDTH:
+        case NEG_WIDTH:
+        case POS_DUTY:
+        case NEG_DUTY:
+        break;
+
+        default:
+        throw DeviceError("Invalid single source measurement " 
+            + measToString(t_meas));
+    }
+
+    stringstream msg("");
+    msg << ":MEAS:ITEM? " << measToString(t_meas) << ",CHAN" << t_channel << "\n";
+    string resp = this->getComm()->query(msg.str());
+    return convertTo<double>(resp);
 }
 
 void Ds1000Z::setMeasurement(unsigned t_channel1, unsigned t_channel2, 
@@ -181,7 +239,24 @@ void Ds1000Z::setMeasurement(unsigned t_channel1, unsigned t_channel2,
 
     if ( !this->channelValid(t_channel2) )
         throw DeviceError("Invalid channel number " + to_string(t_channel2));
-    // TODO!
+
+    // Valid dual source measurement?
+    switch (t_meas) {
+        case POS_DELAY:
+        case NEG_DELAY:
+        case POS_PHASE:
+        case NEG_PHASE:
+        break;
+
+        default:
+        throw DeviceError("Invalid dual source measurement " 
+            + measToString(t_meas));
+    }
+    
+    stringstream msg("");
+    msg << ":MEAS:ITEM " << measToString(t_meas) << ",CHAN" << t_channel1;
+    msg << ",CHAN" << t_channel2 << "\n";
+    this->getComm()->write(msg.str());
     return;
 }
 
@@ -193,8 +268,25 @@ double Ds1000Z::getMeasurement(unsigned t_channel1, unsigned t_channel2,
     
     if ( !this->channelValid(t_channel2) )
         throw DeviceError("Invalid channel number " + to_string(t_channel2));
-    // TODO!
-    return 0.;
+    
+    // Valid dual source measurement?
+    switch (t_meas) {
+        case POS_DELAY:
+        case NEG_DELAY:
+        case POS_PHASE:
+        case NEG_PHASE:
+        break;
+
+        default:
+        throw DeviceError("Invalid dual source measurement " 
+            + measToString(t_meas));
+    }
+
+    stringstream msg("");
+    msg << ":MEAS:ITEM? " << measToString(t_meas) << ",CHAN" << t_channel1;
+    msg << ",CHAN" << t_channel2 << "\n";
+    string resp = this->getComm()->query(msg.str());
+    return convertTo<double>(resp);
 }
 
 void Ds1000Z::clearMeasurements()
@@ -228,21 +320,7 @@ void Ds1000Z::setTriggerType(TriggerType t_trig)
     this->getComm()->write(msg.str().c_str());
 
     msg.str("");
-    msg << ":TRIG:EDG:SLOP ";
-    switch (t_trig) {
-    case RISE: 
-        msg << "POS\n"; 
-        break;
-    case FALL: 
-        msg << "NEG\n"; 
-        break;
-    case BOTH: 
-        msg << "RFAL\n"; 
-        break;
-    default:
-        fprintf(stderr, "Invalid trigger type received: %02X\n", t_trig);
-        abort();
-    }
+    msg << ":TRIG:EDG:SLOP " << this->trigToString(t_trig) << "\n";
     this->getComm()->write(msg.str().c_str());
     return;
 }
@@ -349,8 +427,8 @@ void Ds1000Z::readSampleData(unsigned t_channel, vector<double> &t_horz_data,
 void Ds1000Z::init()
 {
     m_scpi.setComm(this->getComm());
-    m_name = m_scpi.getIdn();
-    m_name.erase(remove(m_name.begin(), m_name.end(), '\n'));
+    // Get identifier and remove all control chars (i.e. /n, /0, etc.)
+    m_name = removeCtrlChars(m_scpi.getIdn());
 
     // Set waveform format
     this->getComm()->write(":WAV:FORM BYTE\n");
@@ -386,5 +464,45 @@ vector<uint8_t> Ds1000Z::readMemoryData()
 
     return ret;   
 }
+
+string Ds1000Z::measToString(MeasurementItem t_meas)
+{
+    switch (t_meas)
+    {
+        case VMAX:      return "VMAX";
+        case VMIN:      return "VMIN";
+        case VPP:       return "VPP";
+        case VTOP:      return "VTOP";
+        case VBASE:     return "VBAS";
+        case VAMP:      return "VAMP";
+        case VAVG:      return "VAVG";
+        case VRMS:      return "VRMS";        
+        case OVERSHOOT: return "OVER";
+        case PRESHOOT:  return "PRES";
+        case FREQ:      return "FREQ";        
+        case RISETIME:  return "RTIM";
+        case FALLTIME:  return "FTIM";
+        case POS_WIDTH: return "PWID";        
+        case NEG_WIDTH: return "NWID";
+        case POS_DUTY:  return "PDUT";
+        case NEG_DUTY:  return "NDUT";        
+        case POS_DELAY: return "RDEL";
+        case NEG_DELAY: return "FDEL";
+        case POS_PHASE: return "RPH";        
+        case NEG_PHASE: return "FPH";
+    }
+    return "NONE";    // Never reached
+}
+
+std::string Ds1000Z::trigToString(TriggerType t_trig)
+{
+    switch (t_trig) {
+        case RISE:  return "POS";
+        case FALL:  return "NEG";
+        case BOTH:  return "RFAL";
+    }
+    return "NONE";  // Never reached
+}
+
 
 }

@@ -105,6 +105,11 @@ private:
     void setMemoryDataRange(unsigned t_sta, unsigned t_sto);
     std::vector<uint8_t> readMemoryData();
 
+    /// Converts measurement to Rigol DS1000Z SCPI compatible string
+    static std::string measToString(MeasurementItem t_meas);
+    /// Converts trigger type to Rigol DS1000Z SCPI compatible string
+    static std::string trigToString(TriggerType t_trig);
+
     Scpi m_scpi {};
 
 };

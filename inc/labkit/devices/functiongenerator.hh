@@ -17,6 +17,7 @@ namespace labkit
  */
 class FunctionGenerator : public BasicDevice
 {
+public:
     virtual ~FunctionGenerator() {};
 
     /// Returns number of channels of device
@@ -35,51 +36,56 @@ class FunctionGenerator : public BasicDevice
     virtual Waveform getWaveform(unsigned t_channel) = 0;
 
     /// Set signal frequency in [Hz]
-    virtual void setFrequency(unsigned t_channel, float t_freq_hz) = 0;
+    virtual void setFrequency(unsigned t_channel, double t_freq_hz) = 0;
     /// Returns signal frequency in [Hz]
-    virtual float getFrequency(unsigned t_channel) = 0;
+    virtual double getFrequency(unsigned t_channel) = 0;
 
     /// Set signal duty cycle in [%] (0.0 - 1.0)
-    virtual void setDutyCycle(unsigned t_channel, float t_dcl) = 0;
+    virtual void setDutyCycle(unsigned t_channel, double t_dcl) = 0;
     /// Returns signal duty cycle in [%] (0.0 - 1.0)
-    virtual float getDutyCycle(unsigned t_channel) = 0;
+    virtual double getDutyCycle(unsigned t_channel) = 0;
 
     /// Set signal phase in [deg] (0.0 - 360.0)
-    virtual void setPhase(unsigned t_channel, float t_phase_deg) = 0;
+    virtual void setPhase(unsigned t_channel, double t_phase_deg) = 0;
     /// Returns signal phase in [deg] (0.0 - 360.0)
-    virtual float getPhase(unsigned t_channel) = 0;
+    virtual double getPhase(unsigned t_channel) = 0;
 
     /// Set signal amplitude in [V]
-    virtual void setAmpl(unsigned t_channel, float t_ampl_v) = 0;
+    virtual void setAmplitude(unsigned t_channel, double t_ampl_v) = 0;
     /// Returns signal amplitude in [V]
-    virtual float getAmpl(unsigned t_channel) = 0;
+    virtual double getAmplitude(unsigned t_channel) = 0;
 
     /// Set signal offset in [V]
-    virtual void setOffset(unsigned t_channel, float t_offset_v) = 0;
+    virtual void setOffset(unsigned t_channel, double t_offset_v) = 0;
     /// Returns signal offset in [V]
-    virtual float getOffset(unsigned t_channel) = 0;
+    virtual double getOffset(unsigned t_channel) = 0;
 
     /// Set rising edge in [s] (10% - 90%)
-    virtual void setRisingEdge(unsigned t_channel, float t_rise_s) = 0;
+    virtual void setRisingEdge(unsigned t_channel, double t_rise_s) = 0;
     /// Returns rising edge in [s] (10% - 90%)
-    virtual float getRisingEdge(unsigned t_channel) = 0;
+    virtual double getRisingEdge(unsigned t_channel) = 0;
     /// Set falling edge in [s] (10% - 90%)
-    virtual void setFallingEdge(unsigned t_channel, float t_fall_s) = 0;
+    virtual void setFallingEdge(unsigned t_channel, double t_fall_s) = 0;
     /// Returns falling edge in [s] (10% - 90%)
-    virtual float getFallingEdge(unsigned t_channel) = 0;
+    virtual double getFallingEdge(unsigned t_channel) = 0;
 
     /// Set pulse width in [s]
-    virtual void setPulseWidth(unsigned t_channel, float t_width_s) = 0;
+    virtual void setPulseWidth(unsigned t_channel, double t_width_s) = 0;
     /// Returns pulse width in [s]
-    virtual float getPulseWidth(unsigned t_channel) = 0;
+    virtual double getPulseWidth(unsigned t_channel) = 0;
 
-private:
+protected:
     FunctionGenerator() : BasicDevice("Unknown function generator") {};
     FunctionGenerator(unsigned n_ch) : BasicDevice("Unknown function generator"),
         m_channels(n_ch) {};
     FunctionGenerator(unsigned t_ch, std::string t_name) : BasicDevice(t_name), 
         m_channels(t_ch) {};
+    
+    /// Returns true if channel is valid (not 0 and less than or equal to m_channels)
+    bool channelValid(unsigned t_channel) 
+        { return t_channel && (t_channel <= m_channels); }
 
+private:
     /// Number of channels
     const unsigned m_channels{0};
 };
