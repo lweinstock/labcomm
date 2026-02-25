@@ -262,20 +262,20 @@ void XenaxXvi75V8::setOutputType(unsigned t_output_no, OutputType t_type)
     return;
 }
 
-void XenaxXvi75V8::setLimits(unsigned t_left, unsigned t_right)
+void XenaxXvi75V8::setLimits(unsigned t_lower, unsigned t_upper)
 {
-    this->queryCmd("LL" + to_string(t_left));
-    this->queryCmd("LR" + to_string(t_right));
+    this->queryCmd("LL" + to_string(t_lower));
+    this->queryCmd("LR" + to_string(t_upper));
     return;
 }
 
-unsigned XenaxXvi75V8::getLimitLeft() 
+unsigned XenaxXvi75V8::getLowerLimit() 
 { 
     bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("LL?"));
     return ret;
 }
-unsigned XenaxXvi75V8::getLimitRight() 
+unsigned XenaxXvi75V8::getUpperLimit() 
 { 
     bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("LR?"));
