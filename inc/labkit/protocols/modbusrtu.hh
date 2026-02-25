@@ -3,6 +3,8 @@
 
 #include <labkit/protocols/modbus.hh>
 
+#include <memory>
+
 namespace labkit
 {
 
@@ -13,7 +15,7 @@ class ModbusRtu : public Modbus
 {
 public:
     ModbusRtu() : Modbus() {};
-    ModbusRtu(std::shared_ptr<BasicComm> t_comm) : Modbus(t_comm) {};
+    ModbusRtu(std::weak_ptr<BasicComm> t_comm) : Modbus(t_comm) {};
     ~ModbusRtu() {};
 
     /// Function Code 01; read coils -> returns true = on, false = off
