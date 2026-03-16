@@ -1,6 +1,9 @@
+#include <cmath>
+#include <iterator>
 #include <labkit/utils.hh>
 #include <labkit/exceptions.hh>
 
+#include <numeric>
 #include <sstream>
 #include <algorithm>
 #include <stdint.h>
@@ -29,6 +32,14 @@ vector<string> split(string list, string delim, size_t max_size) {
     return ret;
 }
 
+std::string removeCtrlChars(const std::string &str)
+{
+    string ret = str;
+    ret.erase(remove_if(ret.begin(), ret.end(), 
+        [](char c) { return std::iscntrl(c); }), ret.end());
+    return ret;
+}
+
 template <typename T> T convertTo(const std::string &t_val)
 {
     std::istringstream iss(t_val);
@@ -47,13 +58,5 @@ template int convertTo<int>(const std::string &t_val);
 template unsigned convertTo<unsigned>(const std::string &t_val);
 template float convertTo<float>(const std::string &t_val);
 template double convertTo<double>(const std::string &t_val);
-
-std::string removeCtrlChars(const std::string &str)
-{
-    string ret = str;
-    ret.erase(remove_if(ret.begin(), ret.end(), 
-        [](char c) { return std::iscntrl(c); }), ret.end());
-    return ret;
-}
 
 }
