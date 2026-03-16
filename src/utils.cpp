@@ -1,12 +1,8 @@
-#include <cmath>
-#include <iterator>
 #include <labkit/utils.hh>
 #include <labkit/exceptions.hh>
 
-#include <numeric>
 #include <sstream>
 #include <algorithm>
-#include <stdint.h>
 
 using namespace std;
 
