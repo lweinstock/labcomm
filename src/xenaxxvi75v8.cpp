@@ -57,7 +57,6 @@ void XenaxXvi75V8::setReferenceDir(ReferenceDirection t_dir)
 
 XenaxXvi75V8::ReferenceDirection XenaxXvi75V8::getReferenceDir()
 {
-    bool success = false;
     unsigned tmp = convertTo<unsigned>(this->queryCmd("DRHR?"));
     ReferenceDirection dir = static_cast<ReferenceDirection>(tmp);
     DEBUG_PRINT("Current reference direction %u\n", dir);
@@ -65,7 +64,6 @@ XenaxXvi75V8::ReferenceDirection XenaxXvi75V8::getReferenceDir()
 }
 
 int XenaxXvi75V8::getPosition() { 
-    bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("TP"));
     return ret;
 }
@@ -165,7 +163,6 @@ void XenaxXvi75V8::setSpeed(unsigned t_inc_per_sec)
 
 unsigned XenaxXvi75V8::getSpeed() 
 {
-    bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("SP?"));
     return ret; 
 }
@@ -178,7 +175,6 @@ void XenaxXvi75V8::setAcceleration(unsigned t_inc_per_sec2)
 
 unsigned XenaxXvi75V8::getAcceleration() 
 { 
-    bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("AC?"));
     return ret; 
 }
@@ -195,7 +191,6 @@ void XenaxXvi75V8::setSCurve(unsigned t_percent)
 
 unsigned XenaxXvi75V8::getSCurve() 
 { 
-    bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("SCRV?"));
     return ret;  
 }
@@ -212,7 +207,6 @@ void XenaxXvi75V8::forceCalibration(unsigned t_len)
 
 int XenaxXvi75V8::getMotorCurrent() 
 { 
-    bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("TMC"));
     return ret;
 }
@@ -220,7 +214,6 @@ int XenaxXvi75V8::getMotorCurrent()
 
 float XenaxXvi75V8::getForceConstant() 
 {
-    bool success = false;
     m_force_const = 1e-6 * convertTo<int>(this->queryCmd("FCM?"));
     DEBUG_PRINT("force constant = %f N/mA\n", m_force_const);
     return m_force_const;
@@ -241,7 +234,6 @@ void XenaxXvi75V8::setForceLimit(float fmax_N)
 
 float XenaxXvi75V8::getForceLimit() 
 {
-    bool success = false;
     int flim_10mA = convertTo<int>(this->queryCmd("LIF?"));
     float flim = 10.*flim_10mA*m_force_const;
     DEBUG_PRINT("force limit = %.3f N\n", flim);
@@ -271,13 +263,11 @@ void XenaxXvi75V8::setLimits(unsigned t_lower, unsigned t_upper)
 
 unsigned XenaxXvi75V8::getLowerLimit() 
 { 
-    bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("LL?"));
     return ret;
 }
 unsigned XenaxXvi75V8::getUpperLimit() 
 { 
-    bool success = false;
     unsigned ret = convertTo<unsigned>(this->queryCmd("LR?"));
     return ret;
 }
@@ -354,7 +344,6 @@ void XenaxXvi75V8::setCardId(unsigned t_cid)
 
 unsigned XenaxXvi75V8::getCardId()
 {
-    bool success = false;
     unsigned cid = convertTo<unsigned>(this->queryCmd("CI?"));
     DEBUG_PRINT("Read card identifier %i\n", cid);
     return cid;
@@ -369,7 +358,6 @@ void XenaxXvi75V8::setGantrySlaveId(unsigned t_gsid)
 
 unsigned XenaxXvi75V8::getGantrySlaveId()
 {
-    bool success = false;
     unsigned gsid = convertTo<unsigned>(this->queryCmd("GSID?"));
     DEBUG_PRINT("Read card identifier %i\n", gsid);
     return gsid;
@@ -384,7 +372,6 @@ void XenaxXvi75V8::setGantryMasterSlaveOffs(int t_gmso)
 
 int XenaxXvi75V8::getGantryMasterSlaveOffs()
 {
-    bool success = false;
     unsigned gmso = convertTo<unsigned>(this->queryCmd("PGMSO?"));
     DEBUG_PRINT("Read gantry master slave offset %i\n", gmso);
     return gmso;
@@ -392,7 +379,6 @@ int XenaxXvi75V8::getGantryMasterSlaveOffs()
 
 int XenaxXvi75V8::detectedGantryMasterSlaveOffs()
 {
-    bool success = false;
     unsigned dgmso = convertTo<unsigned>(this->queryCmd("DGMSO?"));
     DEBUG_PRINT("Read detected gantry master slave offset %i\n", dgmso);
     return dgmso;
@@ -403,7 +389,6 @@ unsigned XenaxXvi75V8::getError(std::string &t_strerror)
     // Toggle error pending
     if (m_error_pending)
         m_error_pending = false;
-    bool success = false;
     m_error = convertTo<int>(this->queryCmd("TE"));
     t_strerror = this->queryCmd("TES");
     return m_error;
@@ -418,7 +403,6 @@ void XenaxXvi75V8::setPayload(unsigned t_payload_g)
 
 unsigned XenaxXvi75V8::getPayload()
 {
-    bool success = false;
     unsigned payload = convertTo<int>(this->queryCmd("ML?"));
     DEBUG_PRINT("Read payload %u\n", payload);
     return payload;
@@ -433,7 +417,6 @@ void XenaxXvi75V8::setGainPos(unsigned t_gain_pos)
 
 unsigned XenaxXvi75V8::getGainPos()
 {
-    bool success = false;
     unsigned gain_pos = convertTo<int>(this->queryCmd("BWP?"));
     DEBUG_PRINT("Read GAIN POS %u\n", gain_pos);
     return gain_pos;
@@ -447,7 +430,6 @@ void XenaxXvi75V8::setGainCur(unsigned t_gain_cur)
 
 unsigned XenaxXvi75V8::getGainCur()
 {
-    bool success = false;
     unsigned gain_cur = convertTo<int>(this->queryCmd("BWC?"));
     DEBUG_PRINT("Read GAIN CUR %u\n", gain_cur);
     return gain_cur;
@@ -462,7 +444,6 @@ void XenaxXvi75V8::setMaxDeviation(unsigned t_max_dev)
 
 unsigned XenaxXvi75V8::getMaxDeviation()
 {
-    bool success = false;
     unsigned max_dev = convertTo<int>(this->queryCmd("DP?"));
     DEBUG_PRINT("Read Deviation POS ACT %u\n", max_dev);
     return max_dev;
@@ -477,7 +458,6 @@ void XenaxXvi75V8::setTargetDeviation(unsigned t_tar_dev)
 
 unsigned XenaxXvi75V8::getTargetDeviation()
 {
-    bool success = false;
     unsigned tar_dev = convertTo<int>(this->queryCmd("DTP?"));
     DEBUG_PRINT("Read Deviation TARGET %u\n", tar_dev);
     return tar_dev;

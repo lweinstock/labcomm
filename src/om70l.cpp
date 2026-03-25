@@ -3,6 +3,7 @@
 #include <labkit/debug.hh>
 
 #include <cmath>
+#include <cstring>  // for memcpy
 #include <memory>
 
 using namespace std;

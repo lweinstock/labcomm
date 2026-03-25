@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <numeric>
-
+#include <cmath>
 
 namespace labkit 
 {
