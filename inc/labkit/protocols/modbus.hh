@@ -20,7 +20,7 @@ public:
     ~Modbus() {};
     
     /// Set communication interface
-    void setComm(std::weak_ptr<BasicComm> t_comm) { t_comm = m_comm; }
+    void setComm(std::weak_ptr<BasicComm> t_comm) { m_comm = t_comm; }
 
     /// Modbus function codes
     enum FunctionCode : uint8_t 
