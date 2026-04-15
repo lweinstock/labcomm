@@ -312,11 +312,12 @@ bool XenaxXvi75V8::getOutput(unsigned t_output_no)
 
 bool XenaxXvi75V8::getInput(unsigned t_input_no)
 {
-    if ( (t_input_no > 16) || (t_input_no < 1) ){
-        fprintf(stderr, "GPIO input number has to be between 1 and 16.\n");
+    if ( (t_input_no > 12) || (t_input_no < 1) ){
+        fprintf(stderr, "GPIO input number has to be between 1 and 12.\n");
         abort();
     }
     uint16_t input_reg = this->getInputStateReg();
+    DEBUG_PRINT("Input register = 0x%04X\n", input_reg);
     return ( (1 << (t_input_no - 1)) & input_reg );
 }
 

@@ -157,7 +157,7 @@ public:
         { return static_cast<uint8_t>(std::stoi(this->queryCmd("TOX"), 0, 16)); }
     /// Returns the raw input state register for all GPIOs
     uint16_t getInputStateReg() 
-        { return static_cast<uint8_t>(std::stoi(this->queryCmd("TIX"), 0, 16)); }
+        { return static_cast<uint16_t>(std::stoi(this->queryCmd("TIX"), 0, 16)); }
 
     /// Motor type reset (in response to error 59)
     void resetMotorType() { this->queryCmd("RESM", 10000); }
